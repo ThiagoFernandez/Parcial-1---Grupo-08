@@ -1,4 +1,5 @@
 package application;
+
 import java.util.Scanner;
 
 public class MainProgram {
@@ -7,36 +8,42 @@ public class MainProgram {
     private Exercise exercise;
 
     public static void main(String[] args) {
-            new MainProgram().run();
+        MainProgram app = new MainProgram();
+        app.run();
     }
-    private void run(){
-        Scanner scanner = new Scanner(System.in);
+
+    private void run() {
+        Scanner scnr = new Scanner(System.in);
+
         while (running) {
-            selectExercise(scanner);
-            if (exercise != null) {
+            selectExercise(scnr);
+
+            if (exercise != null) { // o sea, q no existe
                 exercise.run();
             }
         }
-        scanner.close();
-        System.out.println("Program terminated.");
+
+        scnr.close();
+        System.out.println("Program finished.");
     }
 
-    private void selectExercise(Scanner scanner){
-        System.out.println("Select an exercise to run:"
-                + "\n0: Terminate program"
-                + "\n1: Test Exercise");
-        String userInput = scanner.nextLine();
 
-        switch (userInput){
-            case "0":
+
+    private void selectExercise(Scanner scnr) {
+        System.out.println("Select an exercise (-1 to quit): ");
+        String option = scnr.nextLine();
+
+        switch (option) {
+            case "-1":
                 running = false;
                 break;
+
             case "1":
-                exercise = new testExercise(scanner);
-                exercise.run();
+                exercise = new TestExercise(scnr);
                 break;
+
             default:
-                System.out.println("Invalid input. Please select a valid option.");
+                System.out.println("Invalid option. Try again.");
         }
     }
 }
