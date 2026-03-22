@@ -35,11 +35,18 @@ public class MainProgram {
             case "-1":
                 running = false;
                 break;
-
             case "1":
                 exercise = new TestExercise(scnr);
                 break;
-
+            case "2":
+                exercise = new MenuExercise(scnr);
+                break;
+            case "3":
+                exercise = new Contador(scnr);
+                break;
+            case "4":
+                exercise = new CalculadoraBasica(scnr);
+                break;
             default:
                 System.out.println("Invalid option. Try again.");
         }
