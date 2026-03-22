@@ -27,8 +27,6 @@ public class MainProgram {
         System.out.println("Program finished.");
     }
 
-
-
     private void selectExercise(Scanner scnr) {
         System.out.println("Select an exercise (-1 to quit): ");
         String option = scnr.nextLine();
