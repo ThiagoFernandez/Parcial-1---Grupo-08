@@ -1,5 +1,7 @@
 package application;
 
+import listModule.ListExercise;
+
 import java.util.Scanner;
 
 public class MainProgram {
@@ -47,6 +49,8 @@ public class MainProgram {
             case "4":
                 exercise = new CalculadoraBasica(scnr);
                 break;
+            case "5":
+                exercise = new ListExercise(scnr);
             default:
                 System.out.println("Invalid option. Try again.");
         }
