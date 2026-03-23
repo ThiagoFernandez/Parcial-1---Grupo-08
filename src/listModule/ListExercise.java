@@ -18,7 +18,13 @@ public class ListExercise  extends application.Exercise{
 
     @Override
     protected void exerciseLogic(){
-        menuLogic();
+        switch (currentPhase){
+            case 0 -> menuLogic();
+            case 1 -> addElement();
+            case 2 -> removeElementByIndex();
+            case 3 -> removeElementByReference();
+            case 4 -> clearList();
+        }
     }
 
     private void menuLogic() {
@@ -34,10 +40,10 @@ public class ListExercise  extends application.Exercise{
             stop();
         } else {
             switch (userOption){
-                case "1" -> addElement();
-                case "2" -> removeElementByIndex();
-                case "3" -> removeElementByReference();
-                case "4" -> clearList();
+                case "1" -> currentPhase = 1;
+                case "2" -> currentPhase = 2;
+                case "3" -> currentPhase = 3;
+                case "4" -> currentPhase = 4;
                 default -> System.out.println("Invalid input, please try again.");
             }
         }
@@ -75,6 +81,7 @@ public class ListExercise  extends application.Exercise{
         String element = scanner.nextLine();
         list.add(element);
         System.out.println("Element added successfully!");
+        currentPhase = 0;
     }
 
     public void removeElementByIndex(){
@@ -87,6 +94,7 @@ public class ListExercise  extends application.Exercise{
         } else {
             System.out.println("Invalid index, please try again.");
         }
+        currentPhase = 0;
     }
 
     public void removeElementByReference(){
@@ -98,11 +106,13 @@ public class ListExercise  extends application.Exercise{
         } else {
             System.out.println("Element not found in the list, please try again.");
         }
+        currentPhase = 0;
     }
 
     public void clearList(){
         list.clear();
         System.out.println("List cleared successfully!");
+        currentPhase = 0;
     }
 
 }
