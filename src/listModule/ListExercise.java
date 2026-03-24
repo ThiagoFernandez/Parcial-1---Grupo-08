@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class ListExercise  extends application.Exercise{
     private int currentPhase = 0;
     private boolean firstTime = true;
-//    private List<String> listStatic;
-//    private List<String> listDinamic;
+
     private List<String> list;
 
     public ListExercise(Scanner scanner){
