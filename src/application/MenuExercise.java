@@ -28,6 +28,7 @@ public class MenuExercise  extends Exercise {
                 System.out.println("Enter the second number: ");
                 int number2 = scanner.nextInt();
                 int result = number1 + number2;
+                scanner.nextLine();
                 System.out.println("The result of " + number1 + " + " + number2 + " is: " + result);
             }
             case "4" -> {
@@ -36,6 +37,7 @@ public class MenuExercise  extends Exercise {
                 System.out.println("Enter the second number: ");
                 int number2 = scanner.nextInt();
                 System.out.println("The result of " + number1 + " - " + number2 + " is: " + (number1 - number2));
+                scanner.nextLine();
             }
             default -> System.out.println("Invalid input, please try again.");
         }
