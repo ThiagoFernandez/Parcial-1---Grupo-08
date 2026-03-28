@@ -86,7 +86,7 @@ public class ListExercise  extends application.Exercise{
     public void removeElementByIndex(){
         System.out.println("Enter the index of the element u want to remove: ");
         int idx = scanner.nextInt();
-        scanner.nextLine(); // Consumo la linea que dejo el nextInt para evitar problemas con el scanner
+        scanner.nextLine(); // Consumo la linea q dejo el nextInt para evitar problemas con el scanner
         if (idx >= 0 && idx < list.size()){
             list.remove(idx);
             System.out.println("Element removed successfully!");
