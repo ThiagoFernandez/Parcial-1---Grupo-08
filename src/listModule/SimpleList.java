@@ -1,7 +1,7 @@
 package listModule;
 
 public interface SimpleList<E>{
-    public boolean add(E element); // inserta element al final de la lista, devuelve true siempre
+    boolean add(E element); // inserta element al final de la lista, devuelve true siempre
     void add(int index, E element); // inserta element en el index dado, corriendo todos los elementos en ese indice y los siguientes a la derecha
     E remove(int index); // remueve el elemento de la lista en el index dado, y lo devuelve
     boolean remove(Object object); // remueve object pasado por referencia, devuelve true si se encontro y pudo ser removido de la lista
