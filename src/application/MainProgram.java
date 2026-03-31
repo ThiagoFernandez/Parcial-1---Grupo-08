@@ -1,6 +1,7 @@
 package application;
 
 import listModule.ListExercise;
+import listModule.SimpleArrayList;
 
 import java.util.Scanner;
 
@@ -51,7 +52,8 @@ public class MainProgram {
                 break;
             case "5":
                 exercise = new ListExercise(scnr);
-
+            case "6":
+                exercise = new TestSimpleList(scnr);
             default:
                 System.out.println("Invalid option. Try again.");
         }
