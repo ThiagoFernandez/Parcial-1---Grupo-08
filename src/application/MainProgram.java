@@ -51,6 +51,7 @@ public class MainProgram {
                 break;
             case "5":
                 exercise = new ListExercise(scnr);
+
             default:
                 System.out.println("Invalid option. Try again.");
         }

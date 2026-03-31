@@ -63,7 +63,7 @@ public class ListExercise  extends application.Exercise{
         }
         System.out.println();
         System.out.println("Total: "+ list.size());
-        System.out.println("Is the list empty?" + "\n " + list.isEmpty());
+        System.out.println("Is the list empty?" + "\n " + (list.size() == 0));
     }
 
     public String chooseOption(){

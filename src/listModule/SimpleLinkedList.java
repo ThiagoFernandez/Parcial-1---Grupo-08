@@ -1,5 +1,7 @@
 package listModule;
 
+import java.util.Objects;
+
 public class SimpleLinkedList <E> implements SimpleList<E>{
     private MyNode<E> root;
     private MyNode<E> tail;
@@ -28,7 +30,7 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
 
     @Override
     public void add(int index, E element){
-        validateIndex(index);
+        validateIndexForAdd(index);
         MyNode<E> newNode = new MyNode<>(element);
 
         if(index == 0){
@@ -44,11 +46,7 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
             add(element);
             return;
         } else {
-            MyNode<E> current = root;
-
-            for (int i = 0; i < index; i++) {
-                current = current.next;
-            }
+            MyNode<E> current = recorrerHastaIndice(index);
 
             MyNode<E> previous = current.prev;
 
@@ -64,11 +62,7 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
     @Override
     public E remove(int index){
             validateIndex(index);
-            MyNode<E> current = root;
-            // recorrer hasta el índice
-            for (int i = 0; i < index; i++) {
-                current = current.next;
-            }
+            MyNode<E> current = recorrerHastaIndice(index);
             E data = current.data;
             // caso 1: único elemento
             if (size == 1) {
@@ -94,10 +88,79 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
             return data;
         }
 
+    @Override
+    public boolean remove(Object elemento){
+        MyNode<E> current = root;
+        int idx = 0;
+        while (current!=null){
+            if(Objects.equals(current.data, elemento)){
+                remove(idx);
+                return true;
+            }else{
+                current = current.next;
+                idx++;
+            }
+        }return  false;
+    }
+
+    @Override
+    public void clear(){
+        root = null;
+        tail = null;
+        size = 0;
+    }
+
+    @Override
+    public boolean contains( Object elemento){
+        MyNode<E> current = root;
+        while (current!=null){
+            if(Objects.equals(current.data, elemento)){
+                return true;
+            }
+            current = current.next;
+        }
+        return  false;
+    }
+
+    @Override
+    public E get(int index){
+        validateIndex(index);
+        MyNode<E> current = recorrerHastaIndice(index);
+        return current.data;
+    }
+
+    @Override
+    public E set(int index, E elemento){
+        validateIndex(index);
+        MyNode<E> current = recorrerHastaIndice(index);
+        E oldValue = current.data;
+        current.data = elemento;
+        return oldValue;
+    }
+
+    @Override
+    public int size(){
+        return size;
+    }
+
     private void validateIndex(int index){
         if(index<0 || index >= size){
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
+    }
+
+    private void validateIndexForAdd(int index){
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    private MyNode<E> recorrerHastaIndice(int index){
+        MyNode<E> current = root;
+        for (int i = 0; i<index; i++ ){
+            current = current.next;
+        }
+        return current;
     }
 }
 

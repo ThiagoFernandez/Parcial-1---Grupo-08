@@ -9,6 +9,6 @@ public interface SimpleList<E>{
     boolean contains( Object object); // devuelve true si la lista contiene el object pasado por referencia
     E get(int index); // devuelve el elemento ubicado en index
     E set(int index, E element); // reemplaza el elemento ubicado en index por element, y devuelve el elemento que estaba ahi antes de ser reemplazado
-    int size(); // devuelve la cantidad de elementos en la lsita
+    int size(); // devuelve la cantidad de elementos en la lista
 
 }
