@@ -26,11 +26,11 @@ public class TestSimpleList  extends Exercise{
         list.add(20);
         list.add(30);
 
-        System.out.println("Lista inicial:");
+        System.out.println("Original List:");
         print(list);
 
         list.add(1, 99);
-        System.out.println("Insert 99 en index 1:");
+        System.out.println("Insert 99 in index 1:");
         print(list);
 
         list.remove(1);
@@ -42,7 +42,7 @@ public class TestSimpleList  extends Exercise{
         print(list);
 
         list.remove((Integer)50);
-        System.out.println("Remove elemento 50:");
+        System.out.println("Remove element 50:");
         print(list);
 
         list.clear();

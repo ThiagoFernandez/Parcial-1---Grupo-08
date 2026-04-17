@@ -2,7 +2,7 @@ package listModule;
 
 
 public class SimpleArrayList <E> implements SimpleList<E>{
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = 10; // valor inmutable
 
     private E[] elementos =  (E[]) new Object[DEFAULT_CAPACITY];
     private int size;

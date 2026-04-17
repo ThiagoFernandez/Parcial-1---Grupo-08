@@ -42,18 +42,20 @@ public class MainProgram {
                 exercise = new TestExercise(scnr);
                 break;
             case "2":
-                exercise = new MenuExercise(scnr);
+                exercise = new MenuExercise(scnr); // extra
                 break;
             case "3":
-                exercise = new Contador(scnr);
+                exercise = new Contador(scnr); // extra
                 break;
             case "4":
-                exercise = new CalculadoraBasica(scnr);
+                exercise = new CalculadoraBasica(scnr); // extra
                 break;
             case "5":
                 exercise = new ListExercise(scnr);
+                break;
             case "6":
                 exercise = new TestSimpleList(scnr);
+                break;
             default:
                 System.out.println("Invalid option. Try again.");
         }

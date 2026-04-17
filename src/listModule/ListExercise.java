@@ -11,8 +11,15 @@ public class ListExercise  extends application.Exercise{
 
     public ListExercise(Scanner scanner){
         super(scanner);
-        list = new ArrayList<>();
-        //list = new LinkedList<>();
+        System.out.println("1 - ArrayList");
+        System.out.println("2 - LinkedList");
+
+        String op = scanner.nextLine();
+        if (op.equals("1")) {
+            list = new ArrayList<>();
+        } else {
+            list = new LinkedList<>();;
+        }
     }
 
     @Override
@@ -29,7 +36,7 @@ public class ListExercise  extends application.Exercise{
     private void menuLogic() {
         if (firstTime) {
             System.out.println("Welcome to the List Exercise!");
-            showData();
+            //showData();
             firstTime = false;
         } else {
             showData();
@@ -63,7 +70,7 @@ public class ListExercise  extends application.Exercise{
         }
         System.out.println();
         System.out.println("Total: "+ list.size());
-        System.out.println("Is the list empty?" + "\n " + (list.size() == 0));
+        System.out.println("Is the list empty?" + "\n " + (list.isEmpty()));
     }
 
     public String chooseOption(){
