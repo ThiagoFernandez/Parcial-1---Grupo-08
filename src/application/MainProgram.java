@@ -35,8 +35,8 @@ public class MainProgram {
                 "Select an exercise (-1 to quit): " +"\n"+
                         "1. TestExercise" + "\n" +
                         "2. MenuExercise (extra)" + "\n" +
-                        "3. Contador (extra)" + "\n" +
-                        "4. CalculadoraBasica (extra)"+"\n"+
+                        "3. Contador(extra)" + "\n" +
+                        "4. CalculadoraBasica(extra)"+"\n"+
                         "5. ListExercise"+"\n"+
                         "6. TestSimpleList (now everything is in ListExercise)"+ "\n"
         );
