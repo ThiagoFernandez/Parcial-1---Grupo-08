@@ -29,7 +29,7 @@ public class TestSimpleList  extends Exercise{
         System.out.println("Original List:");
         print(list);
 
-        list.add(1, 99);
+        list.add(122, 99);
         System.out.println("Insert 99 in index 1:");
         print(list);
 
