@@ -10,5 +10,5 @@ public interface SimpleList<E>{
     E get(int index); // devuelve el elemento ubicado en index
     E set(int index, E element); // reemplaza el elemento ubicado en index por element, y devuelve el elemento que estaba ahi antes de ser reemplazado
     int size(); // devuelve la cantidad de elementos en la lista
-
+    boolean isEmpty(); // devuelve true or false si esta vacia o no
 }

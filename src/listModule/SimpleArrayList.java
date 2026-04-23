@@ -91,6 +91,7 @@ public class SimpleArrayList <E> implements SimpleList<E>{
     }
 
     // metodos auxiliares
+    @SuppressWarnings("unchecked")
     private void resize(){
         int newCapacity = elementos.length * 2;
         E[] newArray = (E[]) new Object[newCapacity];
@@ -98,6 +99,11 @@ public class SimpleArrayList <E> implements SimpleList<E>{
             newArray[i] = elementos[i];
         }
         elementos = newArray;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     private void validateSize(int newSize){

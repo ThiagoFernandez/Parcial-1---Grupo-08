@@ -149,6 +149,11 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
         }
     }
 
+    @Override
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
     private void validateIndexForAdd(int index){
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException();

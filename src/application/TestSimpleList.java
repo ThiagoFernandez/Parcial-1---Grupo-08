@@ -18,9 +18,9 @@ public class TestSimpleList  extends Exercise{
 
         if (op.equals("1")) {
             list = new listModule.SimpleArrayList<>();
-        } else {
+        } else if (op.equals("2")) {
             list = new listModule.SimpleLinkedList<>();
-        }
+        } else{stop();return;}
 
         list.add(10);
         list.add(20);
