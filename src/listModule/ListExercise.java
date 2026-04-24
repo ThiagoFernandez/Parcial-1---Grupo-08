@@ -146,7 +146,7 @@ public class ListExercise  extends application.Exercise{
         System.out.println(
                         "1. boolean add(E element)" + "\n"+
                         "2. void add(int index, E element)"+ "\n"+
-                        "3. E remove(int index"+ "\n"+
+                        "3. E remove(int index)"+ "\n"+
                         "4. boolean remove(Object object)"+ "\n"+
                         "5. void clear()"+"\n"+
                         "6. boolean contains(Object object)"+"\n"+

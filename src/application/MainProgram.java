@@ -38,7 +38,9 @@ public class MainProgram {
                         "3. Contador(extra)" + "\n" +
                         "4. CalculadoraBasica(extra)"+"\n"+
                         "5. ListExercise"+"\n"+
-                        "6. TestSimpleList (now everything is in ListExercise)"+ "\n"
+                        "6. TestSimpleList (now everything is in ListExercise)"+ "\n" +
+                        "7. StackExercise" + "\n" +
+                        "8. QueueExercise"
         );
         String option = scnr.nextLine();
 
@@ -63,6 +65,12 @@ public class MainProgram {
                 break;
             case "6":
                 exercise = new TestSimpleList(scnr);
+                break;
+            case "7":
+                exercise = new stackModule.StackExercise(scnr);
+                break;
+            case "8":
+                exercise = new queueModule.QueueExercise(scnr);
                 break;
             default:
                 System.out.println("Invalid option. Try again.");
