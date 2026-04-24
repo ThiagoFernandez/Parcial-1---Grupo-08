@@ -6,5 +6,5 @@ public interface SimpleStack <E>{
     E peek(); // Devuelve el ultimo elemento de la pila sin removerlo
     void clear(); // Borra todos los elementos de la pila, dejandola vacia
     int size(); // Devuelve la cantidad de elementos een la pila
-    public boolean isEmpty(); // true or false en base si esta vacia o no la pila
+    boolean isEmpty(); // true or false en base si esta vacia o no la pila
 }

@@ -1,7 +1,6 @@
 package application;
 
 import listModule.ListExercise;
-import listModule.SimpleArrayList;
 
 import java.util.Scanner;
 

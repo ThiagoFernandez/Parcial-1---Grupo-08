@@ -6,5 +6,5 @@ public interface SimpleQueue <E>{
     E peek(); // Devuelve el primer elemento de la cola sin removerlo
     void clear(); // Borra todos los elementos de la cola, dejandola vacia
     int size(); // Devuelve la cantidad de elementos een la cola
-    public boolean isEmpty(); // true or false en base si esta vacia o no la cola
+    boolean isEmpty(); // true or false en base si esta vacia o no la cola
 }

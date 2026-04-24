@@ -53,6 +53,6 @@ public class SimpleLinkedQueue <E> implements SimpleQueue<E>{
     }
     @Override
     public boolean isEmpty(){
-        return root!=null && tail!=null;
+        return size==0;
     }
 }

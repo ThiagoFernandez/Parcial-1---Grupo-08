@@ -22,6 +22,7 @@ public class SimpleArrayQueue<E> implements SimpleQueue<E> {
         for(int i = 0; i<size; i++){
             elements[i] = elements[i+1];
         }
+        elements[size-1] = null;
         size--;
         return removed;
     }

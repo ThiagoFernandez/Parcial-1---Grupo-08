@@ -8,7 +8,7 @@ public class QueueExercise extends Exercise {
     private int currentPhase = 0;
     private boolean firstTime = true;
 
-    SimpleQueue<Integer>list; // el tipo de dato no necesariamente debe ser Integer, simplemente para testearlo
+    SimpleQueue<Integer>queue; // el tipo de dato no necesariamente debe ser Integer, simplemente para testearlo
 
     public QueueExercise(Scanner scanner){
         super(scanner);
@@ -17,9 +17,9 @@ public class QueueExercise extends Exercise {
 
         String op = scanner.nextLine();
         if (op.equals("1")){
-            list = new SimpleArrayQueue<>();
+            queue = new SimpleArrayQueue<>();
         } else if(op.equals("2")){
-            list = new SimpleLinkedQueue<>();
+            queue = new SimpleLinkedQueue<>();
         } else{stop();}
     }
     @Override
@@ -32,16 +32,16 @@ public class QueueExercise extends Exercise {
                     Integer num = scanner.nextInt();
                     scanner.nextLine();
                     if(num.equals(-1)){break;}
-                    list.enqueue(num);
+                    queue.enqueue(num);
                 }
                 currentPhase = 0;
             }
             case 2 -> {
                 int num = 2;
-                if(list.isEmpty()) {
-                    System.out.println("Cannot do the operation | The list is empty ");
+                if(queue.isEmpty()) {
+                    System.out.println("Cannot do the operation | The queue is empty ");
                 } else{
-                    System.out.println("Removed element: "+list.dequeue());
+                    System.out.println("Removed element: "+queue.dequeue());
                     System.out.println("0 to go back to the stack menu");
                     num = scanner.nextInt();
                     scanner.nextLine();
@@ -49,27 +49,27 @@ public class QueueExercise extends Exercise {
                 currentPhase = num;
             }
             case 3 -> {
-                if(list.isEmpty()) {
-                    System.out.println("Cannot do the operation | The list is empty ");
+                if(queue.isEmpty()) {
+                    System.out.println("Cannot do the operation | The queue is empty ");
                 } else{
-                    System.out.println("Last element: "+list.peek());
+                    System.out.println("Last element: "+queue.peek());
                 }
                 currentPhase = 0;
             }
             case 4 -> {
-                if(list.isEmpty()) {
-                    System.out.println("Cannot do the operation | The list is empty ");
+                if(queue.isEmpty()) {
+                    System.out.println("Cannot do the operation | The queue is empty ");
                 } else{
-                    list.clear();
+                    queue.clear();
                 }
                 currentPhase = 0;
             }
             case 5 -> {
-                System.out.println("List size: "+ list.size());
+                System.out.println("queue size: "+ queue.size());
                 currentPhase = 0;
             }
             case 6 -> {
-                System.out.println("Is the list empty: "+list.isEmpty());
+                System.out.println("Is the queue empty: "+queue.isEmpty());
                 currentPhase = 0;
             }
         }
@@ -92,14 +92,15 @@ public class QueueExercise extends Exercise {
                 case "3" -> currentPhase = 3;
                 case "4" -> currentPhase = 4;
                 case "5" -> currentPhase = 5;
+                case "6" -> currentPhase = 6;
                 default -> System.out.println("Invalid input, please try again.");
             }
         }
     }
     public void showData(){
-        System.out.println("This is the current state of the list: ");
-        System.out.println("Is the list empty?"+ (list.isEmpty()));
-        System.out.println("Total: "+ list.size());
+        System.out.println("This is the current state of the queue: ");
+        System.out.println("Is the queue empty?"+ (queue.isEmpty()));
+        System.out.println("Total: "+ queue.size());
     }
     public String chooseOption(){
         System.out.println(

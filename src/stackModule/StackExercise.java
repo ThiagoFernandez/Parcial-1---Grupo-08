@@ -8,7 +8,7 @@ public class StackExercise extends Exercise {
     private int currentPhase = 0;
     private boolean firstTime = true;
 
-    SimpleStack<Integer>list; // el tipo de dato no necesariamente debe ser Integer, simplemente para testearlo
+    SimpleStack<Integer>stack; // el tipo de dato no necesariamente debe ser Integer, simplemente para testearlo
 
     public StackExercise(Scanner scanner){
         super(scanner);
@@ -17,9 +17,9 @@ public class StackExercise extends Exercise {
 
         String op = scanner.nextLine();
         if (op.equals("1")) {
-            list = new SimpleArrayStack<>();
+            stack = new SimpleArrayStack<>();
         } else if (op.equals("2")) {
-            list = new SimpleLinkedStack<>();;
+            stack = new SimpleLinkedStack<>();
         }else{ stop();}
     }
 
@@ -33,16 +33,16 @@ public class StackExercise extends Exercise {
                     Integer num = scanner.nextInt();
                     scanner.nextLine();
                     if(num.equals(-1)){break;}
-                    list.push(num);
+                    stack.push(num);
                 }
                 currentPhase = 0;
             }
             case 2 -> {
                 int num = 2;
-                if(list.isEmpty()) {
-                    System.out.println("Cannot do the operation | The list is empty ");
+                if(stack.isEmpty()) {
+                    System.out.println("Cannot do the operation | The stack is empty ");
                 } else{
-                    System.out.println("Removed element: "+list.pop());
+                    System.out.println("Removed element: "+stack.pop());
                     System.out.println("0 to go back to the stack menu");
                     num = scanner.nextInt();
                     scanner.nextLine();
@@ -50,27 +50,27 @@ public class StackExercise extends Exercise {
                 currentPhase = num;
             }
             case 3 -> {
-                if(list.isEmpty()) {
-                    System.out.println("Cannot do the operation | The list is empty ");
+                if(stack.isEmpty()) {
+                    System.out.println("Cannot do the operation | The stack is empty ");
                 } else{
-                    System.out.println("Last element: "+list.peek());
+                    System.out.println("Last element: "+stack.peek());
                 }
                 currentPhase = 0;
             }
             case 4 -> {
-                if(list.isEmpty()) {
-                    System.out.println("Cannot do the operation | The list is empty ");
+                if(stack.isEmpty()) {
+                    System.out.println("Cannot do the operation | The stack is empty ");
                 } else{
-                    list.clear();
+                    stack.clear();
                 }
                 currentPhase = 0;
             }
             case 5 -> {
-                System.out.println("List size: "+ list.size());
+                System.out.println("stack size: "+ stack.size());
                 currentPhase = 0;
             }
             case 6 -> {
-                System.out.println("Is the list empty: "+list.isEmpty());
+                System.out.println("Is the stack empty: "+stack.isEmpty());
                 currentPhase = 0;
             }
         }
@@ -94,14 +94,15 @@ public class StackExercise extends Exercise {
                 case "3" -> currentPhase = 3;
                 case "4" -> currentPhase = 4;
                 case "5" -> currentPhase = 5;
+                case "6" -> currentPhase = 6;
                 default -> System.out.println("Invalid input, please try again.");
             }
         }
     }
     public void showData(){
-        System.out.println("This is the current state of the list: ");
-        System.out.println("Is the list empty?"+ (list.isEmpty()));
-        System.out.println("Total: "+ list.size());
+        System.out.println("This is the current state of the stack: ");
+        System.out.println("Is the stack empty?"+ (stack.isEmpty()));
+        System.out.println("Total: "+ stack.size());
     }
     public String chooseOption(){
         System.out.println(
