@@ -1,32 +1,36 @@
 package queueModule;
 
 import listModule.MyNode;
+import java.util.NoSuchElementException;
 
-public class SimpleLinkedQueue <E> implements SimpleQueue<E>{
+public class SimpleLinkedQueue<E> implements SimpleQueue<E> {
     private MyNode<E> root;
     private MyNode<E> tail;
     private int size;
 
-    public SimpleLinkedQueue(){
+    public SimpleLinkedQueue() {
         root = null;
         tail = null;
         size = 0;
     }
+
     @Override
-    public void enqueue(E element){
+    public void enqueue(E element) {
         MyNode<E> newNode = new MyNode<>(element);
-        if (root == null){
+        if (root == null) {
             root = newNode;
             tail = newNode;
-        } else{
+        } else {
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
         }
         size++;
     }
+
     @Override
-    public E dequeue(){
+    public E dequeue() {
+        if (isEmpty()) throw new NoSuchElementException("Queue is empty");
         MyNode<E> removed = root;
         root = root.next;
         if (root != null) {
@@ -37,22 +41,27 @@ public class SimpleLinkedQueue <E> implements SimpleQueue<E>{
         size--;
         return removed.data;
     }
+
     @Override
-    public E peek(){
+    public E peek() {
+        if (isEmpty()) throw new NoSuchElementException("Queue is empty");
         return root.data;
     }
+
     @Override
-    public void clear(){
+    public void clear() {
         root = null;
         tail = null;
         size = 0;
     }
+
     @Override
-    public int size(){
+    public int size() {
         return size;
     }
+
     @Override
-    public boolean isEmpty(){
-        return size==0;
+    public boolean isEmpty() {
+        return size == 0;  // fix: era root != null && tail != null
     }
 }

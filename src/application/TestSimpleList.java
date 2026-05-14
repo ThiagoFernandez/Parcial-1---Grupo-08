@@ -2,13 +2,13 @@ package application;
 
 import java.util.Scanner;
 
-public class TestSimpleList  extends Exercise{
-    public TestSimpleList(Scanner scanner){
+public class TestSimpleList extends Exercise {
+    public TestSimpleList(Scanner scanner) {
         super(scanner);
     }
+
     @Override
     protected void exerciseLogic() {
-
         System.out.println("1 - SimpleArrayList");
         System.out.println("2 - SimpleLinkedList");
 
@@ -20,7 +20,7 @@ public class TestSimpleList  extends Exercise{
             list = new listModule.SimpleArrayList<>();
         } else if (op.equals("2")) {
             list = new listModule.SimpleLinkedList<>();
-        } else{stop();return;}
+        } else { stop(); return; }
 
         list.add(10);
         list.add(20);
@@ -29,8 +29,8 @@ public class TestSimpleList  extends Exercise{
         System.out.println("Original List:");
         print(list);
 
-        list.add(122, 99);
-        System.out.println("Insert 99 in index 1:");
+        list.add(1, 99);
+        System.out.println("Insert 99 at index 1:");
         print(list);
 
         list.remove(1);
@@ -38,10 +38,10 @@ public class TestSimpleList  extends Exercise{
         print(list);
 
         list.set(1, 50);
-        System.out.println("Set index 1 a 50:");
+        System.out.println("Set index 1 to 50:");
         print(list);
 
-        list.remove((Integer)50);
+        list.remove((Integer) 50);
         System.out.println("Remove element 50:");
         print(list);
 

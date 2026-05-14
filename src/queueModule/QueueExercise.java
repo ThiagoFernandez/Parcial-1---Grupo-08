@@ -1,118 +1,115 @@
 package queueModule;
 
 import application.Exercise;
-
 import java.util.Scanner;
 
 public class QueueExercise extends Exercise {
     private int currentPhase = 0;
     private boolean firstTime = true;
 
-    SimpleQueue<Integer>queue; // el tipo de dato no necesariamente debe ser Integer, simplemente para testearlo
+    SimpleQueue<String> list;
 
-    public QueueExercise(Scanner scanner){
+    public QueueExercise(Scanner scanner) {
         super(scanner);
         System.out.println("1 - SimpleArrayQueue");
         System.out.println("2 - SimpleLinkedQueue");
 
         String op = scanner.nextLine();
-        if (op.equals("1")){
-            queue = new SimpleArrayQueue<>();
-        } else if(op.equals("2")){
-            queue = new SimpleLinkedQueue<>();
-        } else{stop();}
+        if (op.equals("1")) {
+            list = new SimpleArrayQueue<>();
+        } else if (op.equals("2")) {
+            list = new SimpleLinkedQueue<>();
+        } else { stop(); }
     }
+
     @Override
-    protected void exerciseLogic(){
-        switch (currentPhase){
+    protected void exerciseLogic() {
+        switch (currentPhase) {
             case 0 -> menuLogic();
-            case 1-> {
-                while (true){
-                    System.out.println("Write a number | '-1' to go back to the stack menu");
-                    Integer num = scanner.nextInt();
-                    scanner.nextLine();
-                    if(num.equals(-1)){break;}
-                    queue.enqueue(num);
+            case 1 -> {
+                while (true) {
+                    System.out.println("Enter an element to enqueue | 'mm' to go back");
+                    String input = scanner.nextLine().strip();
+                    if (input.equalsIgnoreCase("mm")) { break; }
+                    list.enqueue(input);
                 }
                 currentPhase = 0;
             }
             case 2 -> {
-                int num = 2;
-                if(queue.isEmpty()) {
-                    System.out.println("Cannot do the operation | The queue is empty ");
-                } else{
-                    System.out.println("Removed element: "+queue.dequeue());
-                    System.out.println("0 to go back to the stack menu");
-                    num = scanner.nextInt();
-                    scanner.nextLine();
+                if (list.isEmpty()) {
+                    System.out.println("Cannot do the operation | The queue is empty");
+                } else {
+                    System.out.println("Removed element: " + list.dequeue());
                 }
-                currentPhase = num;
+                currentPhase = 0;
             }
             case 3 -> {
-                if(queue.isEmpty()) {
-                    System.out.println("Cannot do the operation | The queue is empty ");
-                } else{
-                    System.out.println("Last element: "+queue.peek());
+                if (list.isEmpty()) {
+                    System.out.println("Cannot do the operation | The queue is empty");
+                } else {
+                    System.out.println("Front element: " + list.peek());
                 }
                 currentPhase = 0;
             }
             case 4 -> {
-                if(queue.isEmpty()) {
-                    System.out.println("Cannot do the operation | The queue is empty ");
-                } else{
-                    queue.clear();
+                if (list.isEmpty()) {
+                    System.out.println("The queue is already empty");
+                } else {
+                    list.clear();
+                    System.out.println("Queue cleared.");
                 }
                 currentPhase = 0;
             }
             case 5 -> {
-                System.out.println("queue size: "+ queue.size());
+                System.out.println("Queue size: " + list.size());
                 currentPhase = 0;
             }
             case 6 -> {
-                System.out.println("Is the queue empty: "+queue.isEmpty());
+                System.out.println("Is the queue empty: " + list.isEmpty());
                 currentPhase = 0;
             }
         }
     }
+
     private void menuLogic() {
         if (firstTime) {
             System.out.println("Welcome to the Queue Exercise!");
-            //showData();
             firstTime = false;
         } else {
             showData();
         }
         String userOption = chooseOption();
-        if (userOption.equals("mm")){
+        if (userOption.equals("mm")) {
             stop();
         } else {
-            switch (userOption){
+            switch (userOption) {
                 case "1" -> currentPhase = 1;
                 case "2" -> currentPhase = 2;
                 case "3" -> currentPhase = 3;
                 case "4" -> currentPhase = 4;
                 case "5" -> currentPhase = 5;
                 case "6" -> currentPhase = 6;
-                default -> System.out.println("Invalid input, please try again.");
+                default  -> System.out.println("Invalid input, please try again.");
             }
         }
     }
-    public void showData(){
-        System.out.println("This is the current state of the queue: ");
-        System.out.println("Is the queue empty?"+ (queue.isEmpty()));
-        System.out.println("Total: "+ queue.size());
+
+    public void showData() {
+        System.out.println("Current state of the queue:");
+        System.out.println("Is the queue empty: " + list.isEmpty());
+        System.out.println("Total: " + list.size());
     }
-    public String chooseOption(){
+
+    public String chooseOption() {
         System.out.println(
-                        "1. void enqueue(E element)" + "\n"+
-                        "2. E dequeue()"+ "\n"+
-                        "3. E peek()"+ "\n"+
-                        "4. void clear()"+ "\n"+
-                        "5. int size()"+"\n"+
-                        "6. boolean isEmpty()"+"\n"+
+                "1. void enqueue(E element)\n" +
+                        "2. E dequeue()\n" +
+                        "3. E peek()\n" +
+                        "4. void clear()\n" +
+                        "5. int size()\n" +
+                        "6. boolean isEmpty()\n" +
                         "mm. stop()"
         );
         return scanner.nextLine().toLowerCase().strip();
     }
-
 }
