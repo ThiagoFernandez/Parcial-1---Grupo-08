@@ -64,7 +64,7 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
             validateIndex(index);
             MyNode<E> current = recorrerHastaIndice(index);
             E data = current.data;
-            // caso 1: único elemento
+            // caso 1: unico elemento
             if (size == 1) {
                 root = null;
                 tail = null;
@@ -74,7 +74,7 @@ public class SimpleLinkedList <E> implements SimpleList<E>{
                 root = root.next;
                 root.prev = null;
             }
-            // caso 3: último
+            // caso 3: ultimo
             else if (current == tail) {
                 tail = tail.prev;
                 tail.next = null;
