@@ -38,7 +38,8 @@ public class MainProgram {
                         "5. ListExercise\n" +
                         "6. TestSimpleList\n" +
                         "7. StackExercise\n" +
-                        "8. QueueExercise"
+                        "8. QueueExercise\n" +
+                        "9. SetExercise"
         );
         String option = scnr.nextLine().toLowerCase().strip();
 
@@ -52,6 +53,7 @@ public class MainProgram {
             case "6"  -> exercise = new TestSimpleList(scnr);
             case "7"  -> exercise = new stackModule.StackExercise(scnr);
             case "8"  -> exercise = new queueModule.QueueExercise(scnr);
+            case "9"  -> exercise = new setModule.SetExercise(scnr);
             default   -> System.out.println("Invalid option. Try again.");
         }
     }

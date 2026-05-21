@@ -2,8 +2,6 @@ package setModule;
 
 import listModule.MyNode;
 
-import javax.lang.model.element.Element;
-
 public class SimpleLinkedSet<E> implements SimpleSet<E>{
     private MyNode<E> root;
     private MyNode<E> tail;
@@ -70,5 +68,74 @@ public class SimpleLinkedSet<E> implements SimpleSet<E>{
             current = current.next;
         }
         return false;
+    }
+
+    @Override
+    public void clear(){
+        root = null;
+        tail = null;
+        size = 0;
+    }
+
+    @Override
+    public boolean isEmpty(){
+        return size==0;
+    }
+
+    @Override
+    public int size(){
+        return this.size;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public E[] toArray(){
+        E[] array = (E[]) new Object[size];
+        MyNode<E> current = root;
+        for (int i = 0; i < size; i++) {
+            array[i] = current.data;
+            current = current.next;
+        }
+        return  array;
+    }
+
+    @Override
+    public SimpleSet<E> unionWith(SimpleSet<E> other) {
+        SimpleSet<E> result = new SimpleLinkedSet<>();
+        MyNode<E> current = root;
+        while (current != null) {
+            result.add(current.data);
+            current = current.next;
+        }
+        for (E element : other.toArray()) {
+            result.add(element);
+        }
+        return result;
+    }
+
+    @Override
+    public SimpleSet<E> intersectionWith(SimpleSet<E> other) {
+        SimpleSet<E> result = new SimpleLinkedSet<>();
+        MyNode<E> current = root;
+        while (current != null) {
+            if (other.contains(current.data)) {
+                result.add(current.data);
+            }
+            current = current.next;
+        }
+        return result;
+    }
+
+    @Override
+    public SimpleSet<E> differenceWith(SimpleSet<E> other) {
+        SimpleSet<E> result = new SimpleLinkedSet<>();
+        MyNode<E> current = root;
+        while (current != null) {
+            if (!other.contains(current.data)) {
+                result.add(current.data);
+            }
+            current = current.next;
+        }
+        return result;
     }
 }
